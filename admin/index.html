@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -4249,6 +4249,23 @@
             color: #fff;
         }
 
+        .btn-reset:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-vps-config {
+            background: linear-gradient(135deg, #7b2cbf 0%, #9d4edd 100%) !important;
+            color: white !important;
+            border: none !important;
+            font-weight: 600 !important;
+        }
+
+        .btn-vps-config:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(157, 78, 221, 0.4) !important;
+        }
+
         .btn-all-logs {
             background: linear-gradient(135deg, #3b82f6 0, #1d4ed8 100%);
             flex-shrink: 0;
@@ -8207,6 +8224,7 @@
                         我是小白！我想简单点！</button>
                     <button type="button" class="btn btn-danger btn-reset"
                         onclick="resetConfigWithConfirm()">⚠️重置配置</button>
+                    <button type="button" class="btn btn-vps-config" onclick="window.location.href='/admin/vps'">⚙️自建 VPS 配置</button>
                     <button type="button" class="btn btn-primary" onclick="logout()">👋退出登录</button>
                 </div>
             </div>
@@ -16310,10 +16328,11 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             const host = window.location.host;
             const link = currentConfig.LINK;
             document.getElementById('LinkURL').value = currentConfig.LINK;
-            document.getElementById('subLink').value = `https://${host}/sub?token=${token}`;
-            document.getElementById('base64Link').value = `https://${host}/sub?token=${token}&b64`;
-            document.getElementById('clashLink').value = `https://${host}/sub?token=${token}&clash`;
-            document.getElementById('singboxLink').value = `https://${host}/sub?token=${token}&sb`;
+            const protocol = window.location.protocol;
+            document.getElementById('subLink').value = `${protocol}//${host}/sub?token=${token}`;
+            document.getElementById('base64Link').value = `${protocol}//${host}/sub?token=${token}&b64`;
+            document.getElementById('clashLink').value = `${protocol}//${host}/sub?token=${token}&clash`;
+            document.getElementById('singboxLink').value = `${protocol}//${host}/sub?token=${token}&sb`;
 
             // 编辑订阅生成
             const local = currentConfig.优选订阅生成?.local ?? true;
