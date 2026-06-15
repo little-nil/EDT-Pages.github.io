@@ -16295,8 +16295,13 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 // 设置网页标题
                 document.title = `${currentConfig.优选订阅生成?.SUBNAME || 'edgetunnel'} - 管理后台`;
                 if (currentConfig.FAVICON) {
-                    const iconLinks = document.querySelectorAll("link[rel*='icon']");
-                    iconLinks.forEach(link => link.href = currentConfig.FAVICON);
+                    let iconLink = document.querySelector("link[rel*='icon']");
+                    if (!iconLink) {
+                        iconLink = document.createElement('link');
+                        iconLink.rel = 'icon';
+                        document.head.appendChild(iconLink);
+                    }
+                    iconLink.href = currentConfig.FAVICON;
                 }
             } catch (error) {
                 updateVersionBadge('');
@@ -17977,8 +17982,13 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             // 更新网页标题
             document.title = `${currentConfig.优选订阅生成?.SUBNAME || 'edgetunnel'} - 管理后台`;
             if (currentConfig.FAVICON) {
-                const iconLinks = document.querySelectorAll("link[rel*='icon']");
-                iconLinks.forEach(link => link.href = currentConfig.FAVICON);
+                let iconLink = document.querySelector("link[rel*='icon']");
+                if (!iconLink) {
+                    iconLink = document.createElement('link');
+                    iconLink.rel = 'icon';
+                    document.head.appendChild(iconLink);
+                }
+                iconLink.href = currentConfig.FAVICON;
             }
         }
 
