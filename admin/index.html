@@ -16293,7 +16293,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 renderUI();
                 loadVersionByUUID(currentConfig.UUID);
                 // 设置网页标题
-                document.title = `${currentConfig.优选订阅生成?.SUBNAME || 'edgetunnel'} 设置页面 - 管理后台`;
+                document.title = `${currentConfig.优选订阅生成?.SUBNAME || 'edgetunnel'} - 管理后台`;
                 if (currentConfig.FAVICON) {
                     const iconLinks = document.querySelectorAll("link[rel*='icon']");
                     iconLinks.forEach(link => link.href = currentConfig.FAVICON);
@@ -16306,7 +16306,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
         function renderUI() {
             // 标题
-            document.getElementById('pageTitle').textContent = (currentConfig.优选订阅生成?.SUBNAME || 'edgetunnel') + ' 设置页面';
+            document.getElementById('pageTitle').textContent = (currentConfig.优选订阅生成?.SUBNAME || 'edgetunnel');
 
             // 检查 CF 使用情况并显示模块
             const cfUsageModule = document.getElementById('cfUsageModule');
@@ -17479,6 +17479,8 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             }
 
             if (markSectionModified) {
+                // 更新网页标题
+                document.title = `${currentConfig.优选订阅生成?.SUBNAME || 'edgetunnel'} - 管理后台`;
                 markModified('proxy');
             }
         }
@@ -17973,7 +17975,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
             await saveConfigToServer('config');
             // 更新网页标题
-            document.title = `${currentConfig.优选订阅生成?.SUBNAME || 'edgetunnel'}设置页面 - 管理后台`;
+            document.title = `${currentConfig.优选订阅生成?.SUBNAME || 'edgetunnel'} - 管理后台`;
             if (currentConfig.FAVICON) {
                 const iconLinks = document.querySelectorAll("link[rel*='icon']");
                 iconLinks.forEach(link => link.href = currentConfig.FAVICON);
